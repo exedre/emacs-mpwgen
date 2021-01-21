@@ -7,6 +7,8 @@ Customize
 
 Execute
 
+#+begin_src emacs-lisp
  (mpwgen)
+#+end_src
 
 Yank password
