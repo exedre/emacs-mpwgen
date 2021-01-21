@@ -1,0 +1,12 @@
+* MPWGEN - very simple dictionary based password generator
+
+Customize
+
+ - mpwgen-sep :: separator
+ - mpwgen-sche :: components schema
+
+Execute
+
+ (mpwgen)
+
+Yank password
