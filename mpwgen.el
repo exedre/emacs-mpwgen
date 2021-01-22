@@ -67,17 +67,21 @@
 ;;
 ;;
 
+(defun mpwgen-select (&rest alterns)
+  "select one of the alterns - same probs"
+  (let* ((size (length alterns))
+         (index (random size)))
+    (nth index alterns)))
+
+(defun mpwgen-random-sep ()
+  (mpwgen-select "-" "/" "?" "=" "/"))
+
 (defcustom mpwgen-sep  (mpwgen-random-sep)
   "separator in pwd")
 
 (defcustom mpwgen-schema `(noun adjective adverb)
   "word schema" )
 
-(defun mpwgen-select (&rest alterns)
-  "select one of the alterns - same probs"
-  (let* ((size (length alterns))
-         (index (random size)))
-    (nth index alterns)))
 
 (defun mpwgen ()
   (interactive)
@@ -91,9 +95,6 @@
   (interactive)
   (mapconcat #'(lambda (symbol) (funcall(intern  (concat "mpwgen-" (symbol-name symbol))))) mpwgen-schema mpwgen-sep)
   )
-
-(defun mpwgen-random-sep ()
-  (mpwgen-select "-" "/" "?" "=" "/"))
 
 (defun mpwgen-adverb ()
   (mpwgen-select
